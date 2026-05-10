@@ -13,8 +13,7 @@ const dataBudaya = [
 Pertunjukan wayang kulit biasanya berlangsung semalam suntuk dan mengisahkan cerita dari kitab Mahabharata atau Ramayana. Dalang memainkan wayang di balik layar putih yang diterangi lampu, sehingga penonton melihat bayangan boneka tersebut.
 
 Gamelan mengiringi seluruh pertunjukan, menciptakan atmosfer yang magis dan penuh penghayatan. Wayang kulit telah diakui oleh UNESCO sebagai Warisan Budaya Takbenda Dunia sejak tahun 2003.`,
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Wayang_Kulit.jpg/640px-Wayang_Kulit.jpg",
+    gambar: "../src/assets/images/wayangkulit.png",
     lokasi: "Seluruh Yogyakarta",
     waktu: "Malam hari, biasanya acara khusus",
     tiket: "Gratis - Rp 50.000 (tergantung acara)",
@@ -36,7 +35,7 @@ Proses pembuatan batik tulis Yogyakarta dilakukan secara manual menggunakan cant
 
 Motif-motif batik Yogyakarta seperti Parang, Kawung, dan Sido Mukti memiliki makna filosofis yang dalam dan biasanya berkaitan dengan kehidupan, keselarasan, dan kemakmuran.`,
     gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Batik_Yogya.jpg/640px-Batik_Yogya.jpg",
+      "../src/assets/images/batikyogyakarta.png",
     lokasi: "Kotagede, Yogyakarta",
     waktu: "Setiap hari",
     tiket: "Gratis (kunjungan workshop mulai Rp 25.000)",

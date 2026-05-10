@@ -9,8 +9,7 @@ const dataBudaya = [
     kategori: "Seni Pertunjukan",
     deskripsi:
       "Seni pertunjukan tradisional menggunakan boneka kulit yang dimainkan oleh dalang dengan iringan gamelan.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Wayang_Kulit.jpg/640px-Wayang_Kulit.jpg",
+    gambar: "../src/assets/images/wayangkulit.png",
     lokasi: "Seluruh Yogyakarta",
   },
   {
@@ -19,8 +18,7 @@ const dataBudaya = [
     kategori: "Kerajinan",
     deskripsi:
       "Batik khas Yogyakarta dengan motif yang kaya makna filosofis dan nilai budaya yang tinggi.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Batik_Yogya.jpg/640px-Batik_Yogya.jpg",
+    gambar: "../src/assets/images/batikyogyakarta.png",
     lokasi: "Kotagede, Yogyakarta",
   },
   {
@@ -29,8 +27,7 @@ const dataBudaya = [
     kategori: "Seni Tari",
     deskripsi:
       "Tarian sakral keraton Yogyakarta yang dibawakan oleh sembilan penari wanita dengan gerakan yang lembut dan penuh makna.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bedhaya_Ketawang.jpg/640px-Bedhaya_Ketawang.jpg",
+    gambar: "../src/assets/images/taribedhaya.png",
     lokasi: "Keraton Yogyakarta",
   },
   {
@@ -39,8 +36,7 @@ const dataBudaya = [
     kategori: "Seni Musik",
     deskripsi:
       "Orkes tradisional Jawa yang terdiri dari berbagai instrumen perkusi yang menghasilkan musik harmonis.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gamelan.jpg/640px-Gamelan.jpg",
+    gambar: "../src/assets/images/gamelan.png",
     lokasi: "Keraton & Sanggar Seni",
   },
   {
@@ -49,8 +45,7 @@ const dataBudaya = [
     kategori: "Tradisi & Upacara",
     deskripsi:
       "Perayaan tradisional menyambut Maulid Nabi Muhammad SAW yang diadakan di alun-alun Keraton Yogyakarta.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sekaten.jpg/640px-Sekaten.jpg",
+    gambar: "../src/assets/images/sekaten.png",
     lokasi: "Alun-alun Utara, Yogyakarta",
   },
   {
@@ -59,8 +54,7 @@ const dataBudaya = [
     kategori: "Warisan Budaya",
     deskripsi:
       "Istana resmi Kesultanan Ngayogyakarta Hadiningrat yang menjadi pusat budaya dan seni Jawa.",
-    gambar:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Keraton_Yogyakarta.jpg/640px-Keraton_Yogyakarta.jpg",
+    gambar: "../src/assets/images/keraton.png",
     lokasi: "Jl. Rotowijayan, Yogyakarta",
   },
 ];
@@ -89,14 +83,23 @@ function ListBudaya() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-emerald-800 text-white py-14 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-3">Budaya Yogyakarta</h1>
-        <p className="text-emerald-200 text-lg max-w-xl mx-auto">
-          Temukan kekayaan budaya dan tradisi Daerah Istimewa Yogyakarta yang
-          telah diwariskan turun-temurun.
-        </p>
+      <div
+        className="min-h-screen bg-cover bg-center flex items-center"
+        style={{
+          backgroundImage:
+            "url('../src/assets/images/bangunan_hero_section.png')",
+        }}
+      >
+        <div className="bg-black/50 absolute inset-0" />
+        <div className="relative z-10 text-white text-center w-full px-4">
+          <h1 className="text-5xl font-bold">Rasakan Jiwa</h1>
+          <h2 className="text-6xl font-extrabold text-amber-400">
+            Budaya Asli
+          </h2>
+          <p className="text-xl mt-4">Yogyakarta menunggumu</p>
+        </div>
       </div>
-
+      );
       <div className="max-w-7xl mx-auto px-4 py-10">
         {/* Search */}
         <div className="mb-6">
