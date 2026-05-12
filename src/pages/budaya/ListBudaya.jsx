@@ -11,7 +11,7 @@ const dataBudaya = [
     deskripsi:
       "Wayang adalah cermin kehidupan. Setiap tokoh, setiap gerakan, dan setiap dialog mengajarkan tentang kebijaksanaan, keberanian, dan nilai-nilai luhur Jawa.",
     gambar:
-      "../src/assets/wayangkulit.png",
+      "../src/assets/images/wayangkulit.png",
     featured: true,
   },
   {
@@ -22,7 +22,7 @@ const dataBudaya = [
     deskripsi:
       "Setiap goresan canting menyimpan filosofi mendalam tentang kehidupan.",
     gambar:
-      "../src/assets/batikyogyakarta.png",
+      "../src/assets/images/batikyogyakarta.png",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const dataBudaya = [
     tagline: "Rasa Manis yang Punya Cerita",
     deskripsi: "Kuliner khas Yogyakarta yang menjadi simbol keramahan Jawa.",
     gambar:
-      "../src/assets/gudeg.png",
+      "../src/assets/images/gudeg.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const dataBudaya = [
     deskripsi:
       "Istana megah yang menjadi pusat kebudayaan Kesultanan Ngayogyakarta.",
     gambar:
-      "../src/assets/keraton.png",
+      "../src/assets/images/keraton.png",
   },
 ];
 
@@ -51,7 +51,7 @@ const dataOpenTrip = [
     nama: "Kraton Yogyakarta",
     harga: "Rp 150.000",
     gambar:
-      "https://images.unsplash.com/photo-1588392382834-a891154bca4d?w=500&q=80",
+      "../src/assets/images/keraton.png",
     deskripsi: "Telusuri sejarah dan nilai-nilai luhur di pusat kerajaan Jawa.",
   },
   {
@@ -59,7 +59,7 @@ const dataOpenTrip = [
     nama: "Desa Wisata Kasongan",
     harga: "Rp 120.000",
     gambar:
-      "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&q=80",
+      "../src/assets/images/kasongan-budaya.png",
     deskripsi: "Lihat langsung proses kerajinan gerabah khas Jogja.",
   },
   {
@@ -324,7 +324,7 @@ export default function ListBudaya() {
       <section className="hero-wrap">
         <div className="hero-bg">
           <img
-            src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?w=1600&q=80"
+            src="../src/assets/images/bangunan_hero_section.png"
             alt="Keraton Yogyakarta"
             onError={(e) => {
               e.target.style.background = "#2d1f0a";
