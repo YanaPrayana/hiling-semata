@@ -10,8 +10,7 @@ const dataBudaya = [
     tagline: "Lebih dari Sekadar Boneka Kulit",
     deskripsi:
       "Wayang adalah cermin kehidupan. Setiap tokoh, setiap gerakan, dan setiap dialog mengajarkan tentang kebijaksanaan, keberanian, dan nilai-nilai luhur Jawa.",
-    gambar:
-      "../src/assets/images/wayangkulit.png",
+    gambar: "../src/assets/images/wayangkulit.png",
     featured: true,
   },
   {
@@ -21,8 +20,7 @@ const dataBudaya = [
     tagline: "Motif yang Penuh Makna",
     deskripsi:
       "Setiap goresan canting menyimpan filosofi mendalam tentang kehidupan.",
-    gambar:
-      "../src/assets/images/batikyogyakarta.png",
+    gambar: "../src/assets/images/batikyogyakarta.png",
   },
   {
     id: 3,
@@ -30,8 +28,7 @@ const dataBudaya = [
     kategori: "Kuliner",
     tagline: "Rasa Manis yang Punya Cerita",
     deskripsi: "Kuliner khas Yogyakarta yang menjadi simbol keramahan Jawa.",
-    gambar:
-      "../src/assets/images/gudeg.png",
+    gambar: "../src/assets/images/gudeg-budaya.png",
   },
   {
     id: 4,
@@ -40,8 +37,7 @@ const dataBudaya = [
     tagline: "Pusat Kebudayaan dan Sejarah Jawa",
     deskripsi:
       "Istana megah yang menjadi pusat kebudayaan Kesultanan Ngayogyakarta.",
-    gambar:
-      "../src/assets/images/keraton.png",
+    gambar: "../src/assets/images/keraton.png",
   },
 ];
 
@@ -50,32 +46,28 @@ const dataOpenTrip = [
     id: 1,
     nama: "Kraton Yogyakarta",
     harga: "Rp 150.000",
-    gambar:
-      "../src/assets/images/keraton.png",
+    gambar: "../src/assets/images/keraton-budaya.png",
     deskripsi: "Telusuri sejarah dan nilai-nilai luhur di pusat kerajaan Jawa.",
   },
   {
     id: 2,
     nama: "Desa Wisata Kasongan",
     harga: "Rp 120.000",
-    gambar:
-      "../src/assets/images/kasongan-budaya.png",
+    gambar: "../src/assets/images/kasongan-budaya.png",
     deskripsi: "Lihat langsung proses kerajinan gerabah khas Jogja.",
   },
   {
     id: 3,
     nama: "Saksikan Wayang Kulit",
     harga: "Rp 200.000",
-    gambar:
-      "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=500&q=80",
+    gambar: "../src/assets/images/pertunjukan-wayang.png",
     deskripsi: "Nikmati pertunjukan wayang kulit dengan dalang berpengalaman.",
   },
   {
     id: 4,
     nama: "Belajar Membatik",
     harga: "Rp 175.000",
-    gambar:
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500&q=80",
+    gambar: "../src/assets/images/membatik-budaya.png",
     deskripsi: "Pengalaman membatik langsung bersama pengrajin lokal.",
   },
 ];
@@ -142,7 +134,7 @@ export default function ListBudaya() {
       {/* ── STYLES ── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
-
+  
         .hiling-root {
           font-family: 'Cormorant Garamond', Georgia, serif;
           background: #12100a;
@@ -237,11 +229,25 @@ export default function ListBudaya() {
         .card-featured-btn:hover { background:#b8963e; color:#12100a; }
 
         /* Small cards col */
-        .cards-small { display:flex; flex-direction:column; gap:12px; }
+        .cards-small { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 16px; 
+        /* Memastikan container ini tingginya sama dengan kolom sebelah kiri */
+        height: 100%; 
+      }
         .card-small {
-          position:relative; border-radius:10px; overflow:hidden;
-          height:136px; cursor:pointer; transition:transform .3s; text-decoration:none; display:block;
-        }
+        position: relative; 
+        border-radius: 10px; 
+        overflow: hidden;
+        /* HAPUS height: 136px; Ganti dengan flex: 1 */
+        flex: 1; 
+        min-height: 120px; /* Jaga agar tidak terlalu gepeng di layar kecil */
+        cursor: pointer; 
+        transition: transform .3s; 
+        text-decoration: none; 
+        display: block;
+      }
         .card-small:hover { transform:translateY(-3px); }
         .card-small img { width:100%; height:100%; object-fit:cover; }
         .card-small::after {

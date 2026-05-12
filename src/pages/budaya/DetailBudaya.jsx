@@ -1,63 +1,125 @@
 import { useParams, Link } from "react-router-dom";
 
-// Data sementara (nanti diganti API)
+/* ─── DATA BUDAYA (konsisten dengan ListBudaya.jsx) ───────────────────── */
 const dataBudaya = [
   {
     id: 1,
     nama: "Wayang Kulit",
-    kategori: "Seni Pertunjukan",
-    deskripsi:
-      "Seni pertunjukan tradisional menggunakan boneka kulit yang dimainkan oleh dalang dengan iringan gamelan.",
-    deskripsiPanjang: `Wayang Kulit adalah seni pertunjukan tradisional Jawa yang menggunakan boneka yang terbuat dari kulit kerbau. Pertunjukan ini dimainkan oleh seorang dalang yang juga menjadi narator dan pengisi suara semua tokoh.
-
-Pertunjukan wayang kulit biasanya berlangsung semalam suntuk dan mengisahkan cerita dari kitab Mahabharata atau Ramayana. Dalang memainkan wayang di balik layar putih yang diterangi lampu, sehingga penonton melihat bayangan boneka tersebut.
-
-Gamelan mengiringi seluruh pertunjukan, menciptakan atmosfer yang magis dan penuh penghayatan. Wayang kulit telah diakui oleh UNESCO sebagai Warisan Budaya Takbenda Dunia sejak tahun 2003.`,
+    kategori: "Wayang",
+    tagline: "Lebih dari Sekadar Boneka Kulit",
     gambar: "../src/assets/images/wayangkulit.png",
+    gambarHero: "../src/assets/images/wayangkulit.png",
     lokasi: "Seluruh Yogyakarta",
-    waktu: "Malam hari, biasanya acara khusus",
-    tiket: "Gratis - Rp 50.000 (tergantung acara)",
-    fakta: [
-      "Diakui UNESCO tahun 2003",
-      "Pertunjukan bisa berlangsung 8 jam",
-      "Dalang bisa memainkan ratusan karakter",
+    waktu: "Malam hari, acara khusus",
+    tiket: "Gratis – Rp 50.000",
+    paragraf: [
+      "Wayang Kulit adalah seni pertunjukan tradisional Jawa yang menggunakan boneka dari kulit kerbau. Pertunjukan ini dimainkan oleh seorang dalang yang merangkap sebagai narator dan pengisi suara seluruh tokoh.",
+      "Kisah yang dibawakan biasanya bersumber dari epos Mahabharata atau Ramayana — disampaikan melalui bayangan boneka di balik layar putih yang diterangi lampu blencong. Gamelan mengalun sepanjang malam, menciptakan atmosfer sakral dan penuh penghayatan.",
+      "Wayang Kulit telah diakui UNESCO sebagai Warisan Budaya Takbenda Dunia sejak 2003, sebuah pengakuan atas kekayaan nilai filosofis, estetika, dan spiritual yang dikandungnya.",
     ],
+    fakta: [
+      "Diakui UNESCO sebagai Warisan Dunia sejak tahun 2003",
+      "Pertunjukan bisa berlangsung 6–9 jam semalam suntuk",
+      "Dalang tunggal bisa memainkan ratusan karakter berbeda",
+      "Setiap tokoh wayang memiliki makna dan filosofi tersendiri",
+    ],
+    relasi: [2, 3, 4],
   },
   {
     id: 2,
-    nama: "Batik Yogyakarta",
-    kategori: "Kerajinan",
-    deskripsi:
-      "Batik khas Yogyakarta dengan motif yang kaya makna filosofis dan nilai budaya yang tinggi.",
-    deskripsiPanjang: `Batik Yogyakarta adalah salah satu warisan budaya Indonesia yang paling terkenal di dunia. Batik ini memiliki ciri khas motif dengan warna dasar putih atau krem dengan corak hitam dan biru tua.
-
-Proses pembuatan batik tulis Yogyakarta dilakukan secara manual menggunakan canting, yaitu alat kecil dari tembaga yang digunakan untuk menggoreskan lilin panas pada kain. Proses ini membutuhkan ketelitian dan kesabaran tinggi.
-
-Motif-motif batik Yogyakarta seperti Parang, Kawung, dan Sido Mukti memiliki makna filosofis yang dalam dan biasanya berkaitan dengan kehidupan, keselarasan, dan kemakmuran.`,
-    gambar:
-      "../src/assets/images/batikyogyakarta.png",
+    nama: "Batik Jogja",
+    kategori: "Batik",
+    tagline: "Motif yang Penuh Makna",
+    gambar: "../src/assets/images/batikyogyakarta.png",
+    gambarHero: "../src/assets/images/batikyogyakarta.png",
     lokasi: "Kotagede, Yogyakarta",
     waktu: "Setiap hari",
-    tiket: "Gratis (kunjungan workshop mulai Rp 25.000)",
-    fakta: [
-      "Diakui UNESCO tahun 2009",
-      "Ada ratusan motif berbeda",
-      "Motif tertentu hanya boleh dipakai bangsawan",
+    tiket: "Gratis (workshop mulai Rp 25.000)",
+    paragraf: [
+      "Batik Yogyakarta dikenal dengan warna dasarnya yang didominasi putih, biru tua, dan hitam — berbeda dari batik Solo yang lebih cokelat keemasan. Perbedaan ini bukan sekadar estetika, melainkan cerminan filosofi yang berbeda antara dua kerajaan besar Jawa.",
+      "Motif-motif seperti Parang, Kawung, dan Sido Mukti bukan sekadar hiasan — setiap garis, titik, dan pola mengandung doa, harapan, dan pandangan hidup yang diwariskan dari generasi ke generasi.",
+      "Proses membuat batik tulis membutuhkan kesabaran luar biasa: malam (lilin) dituangkan dengan canting di atas kain, kemudian diwarnai, dilorot, dan diulang berkali-kali hingga motif sempurna terbentuk.",
     ],
+    fakta: [
+      "Diakui UNESCO sebagai Warisan Dunia sejak tahun 2009",
+      "Ada ratusan motif batik dengan makna yang berbeda-beda",
+      "Motif tertentu dahulu hanya boleh dipakai kalangan keraton",
+      "Proses batik tulis bisa memakan waktu berbulan-bulan",
+    ],
+    relasi: [1, 3, 4],
+  },
+  {
+    id: 3,
+    nama: "Gudeg",
+    kategori: "Kuliner",
+    tagline: "Rasa Manis yang Punya Cerita",
+    gambar: "../src/assets/images/gudeg-budaya.png",
+    gambarHero: "../src/assets/images/gudeg-budaya.png",
+    lokasi: "Seluruh Yogyakarta",
+    waktu: "Pagi hingga malam hari",
+    tiket: "Rp 10.000 – Rp 50.000",
+    paragraf: [
+      "Gudeg adalah masakan khas Yogyakarta yang terbuat dari nangka muda yang dimasak berjam-jam bersama santan, gula aren, dan berbagai rempah. Hasilnya adalah cita rasa manis, gurih, dan lembut yang khas.",
+      "Lebih dari sekadar makanan, gudeg adalah identitas. Ketika seseorang menyebut Yogyakarta, gudeg hampir selalu menjadi hal pertama yang terlintas di benak. Ia hadir di warung sederhana pinggir jalan hingga meja makan sultan.",
+      "Ada dua jenis gudeg: gudeg kering yang lebih awet dan bisa dibawa sebagai oleh-oleh, serta gudeg basah yang berkuah santan kental dan lebih sering dinikmati di tempat.",
+    ],
+    fakta: [
+      "Dimasak semalam suntuk untuk menghasilkan rasa terbaik",
+      "Gudeg kering bisa tahan 2–3 hari tanpa kulkas",
+      "Sentra gudeg legendaris ada di Wijilan dan Bu Tjitro",
+      "Setiap warung punya resep rahasia yang turun-temurun",
+    ],
+    relasi: [1, 2, 4],
+  },
+  {
+    id: 4,
+    nama: "Keraton Yogyakarta",
+    kategori: "Sejarah & Keraton",
+    tagline: "Pusat Kebudayaan dan Sejarah Jawa",
+    gambar: "../src/assets/images/keraton.png",
+    gambarHero: "../src/assets/images/keraton.png",
+    lokasi: "Jl. Rotowijayan, Yogyakarta",
+    waktu: "Senin–Minggu, 08.00–14.00 WIB",
+    tiket: "Rp 15.000 (wisatawan lokal)",
+    paragraf: [
+      "Keraton Ngayogyakarta Hadiningrat berdiri sejak tahun 1755, dibangun oleh Sri Sultan Hamengku Buwono I setelah Perjanjian Giyanti yang membelah Mataram. Sejak hari pertama, keraton dirancang bukan hanya sebagai kediaman raja, tetapi sebagai poros kosmologi Jawa.",
+      "Seluruh tata letak keraton — dari Gunung Merapi di utara hingga Laut Selatan di ujung selatan — mencerminkan konsep Sangkan Paraning Dumadi, filosofi Jawa tentang asal-usul dan tujuan kehidupan.",
+      "Hingga hari ini, Keraton Yogyakarta tetap didiami oleh Sri Sultan Hamengku Buwono X beserta keluarga. Berbagai tradisi, tarian, dan upacara adat terus dilestarikan sebagai warisan budaya yang hidup.",
+    ],
+    fakta: [
+      "Berdiri sejak 7 Oktober 1756 oleh Sri Sultan HB I",
+      "Masih aktif didiami Sultan dan keluarga hingga kini",
+      "Memiliki museum koleksi keris, wayang, dan pusaka keraton",
+      "Pusat pertunjukan seni budaya rutin setiap minggu",
+    ],
+    relasi: [1, 2, 3],
   },
 ];
 
-function DetailBudaya() {
+export default function DetailBudaya() {
   const { id } = useParams();
-  const budaya = dataBudaya.find((item) => item.id === parseInt(id));
+  const budaya = dataBudaya.find((b) => b.id === parseInt(id));
+  const relasiData = budaya
+    ? dataBudaya.filter((b) => budaya.relasi?.includes(b.id))
+    : [];
 
   if (!budaya) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">
-          Budaya tidak ditemukan
-        </h2>
-        <Link to="/budaya" className="text-emerald-600 hover:underline">
+      <div
+        style={{
+          background: "#12100a",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "'Lato', sans-serif",
+        }}
+      >
+        <p style={{ color: "#fff", fontSize: "18px", marginBottom: "16px" }}>
+          Budaya tidak ditemukan.
+        </p>
+        <Link to="/budaya" style={{ color: "#c9a452" }}>
           ← Kembali ke Daftar Budaya
         </Link>
       </div>
@@ -65,112 +127,467 @@ function DetailBudaya() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Gambar Header */}
-      <div className="relative h-72 md:h-96 overflow-hidden">
-        <img
-          src={budaya.gambar}
-          alt={budaya.nama}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src =
-              "https://placehold.co/800x400/065f46/ffffff?text=" + budaya.nama;
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40 flex items-end p-6">
-          <div>
-            <span className="text-xs font-semibold text-amber-300 bg-emerald-900/80 px-3 py-1 rounded-full">
-              {budaya.kategori}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mt-2">
-              {budaya.nama}
-            </h1>
-          </div>
+    <div className="detail-root">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+
+        .detail-root {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          background: #f2e9d8;
+          min-height: 100vh;
+        }
+
+        /* ── HERO ── */
+        .dh-hero {
+          position: relative;
+          height: 65vh;
+          min-height: 420px;
+          display: flex;
+          align-items: flex-end;
+        }
+        .dh-hero-bg {
+          position: absolute;
+          inset: 0;
+        }
+        .dh-hero-bg img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .dh-hero-bg::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(to top, rgba(8,6,2,.98) 0%, rgba(8,6,2,.5) 50%, rgba(8,6,2,.15) 100%),
+            linear-gradient(105deg, rgba(8,6,2,.7) 0%, transparent 60%);
+        }
+        .dh-hero-body {
+          position: relative;
+          z-index: 2;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 32px 40px;
+          width: 100%;
+        }
+        .dh-badge {
+          display: inline-block;
+          font-family: 'Lato', sans-serif;
+          font-size: 10px;
+          letter-spacing: .2em;
+          text-transform: uppercase;
+          background: rgba(184,150,62,.25);
+          border: 1px solid rgba(184,150,62,.5);
+          color: #c9a452;
+          padding: 5px 14px;
+          margin-bottom: 14px;
+        }
+        .dh-title {
+          font-size: clamp(36px, 5vw, 60px);
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.1;
+          margin-bottom: 10px;
+        }
+        .dh-tagline {
+          font-size: clamp(18px, 2.5vw, 26px);
+          font-style: italic;
+          color: #c9a452;
+        }
+
+        /* ── BREADCRUMB ── */
+        .dh-breadcrumb {
+          background: #1c1509;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(184,150,62,.15);
+        }
+        .dh-breadcrumb-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Lato', sans-serif;
+          font-size: 12px;
+          color: rgba(255,255,255,.35);
+        }
+        .dh-breadcrumb a {
+          color: rgba(255,255,255,.35);
+          text-decoration: none;
+          transition: color .2s;
+        }
+        .dh-breadcrumb a:hover { color: #c9a452; }
+        .dh-breadcrumb-cur { color: #c9a452; }
+
+        /* ── MAIN CONTENT ── */
+        .dh-main {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 48px 32px;
+          display: grid;
+          grid-template-columns: 1fr 320px;
+          gap: 40px;
+          align-items: start;
+        }
+        @media(max-width: 900px) {
+          .dh-main { grid-template-columns: 1fr; }
+        }
+
+        /* ── ARTIKEL ── */
+        .dh-gold-line {
+          width: 64px;
+          height: 2px;
+          background: linear-gradient(90deg, #b8963e, transparent);
+          margin-bottom: 28px;
+        }
+        .dh-para {
+          font-family: 'Lato', sans-serif;
+          font-size: 15px;
+          color: #3a2e1e;
+          line-height: 1.85;
+          margin-bottom: 20px;
+        }
+
+        /* ── FAKTA BOX ── */
+        .dh-fakta {
+          background: #2d1f0a;
+          border-radius: 12px;
+          padding: 28px;
+          margin-top: 36px;
+        }
+        .dh-fakta-title {
+          font-family: 'Lato', sans-serif;
+          font-size: 11px;
+          letter-spacing: .25em;
+          color: #c9a452;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+        .dh-fakta-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        @media(max-width: 600px) {
+          .dh-fakta-grid { grid-template-columns: 1fr; }
+        }
+        .dh-fakta-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .dh-fakta-dot {
+          color: #c9a452;
+          font-size: 18px;
+          line-height: 1.3;
+          flex-shrink: 0;
+        }
+        .dh-fakta-text {
+          font-family: 'Lato', sans-serif;
+          font-size: 13px;
+          color: rgba(255,255,255,.7);
+          line-height: 1.6;
+        }
+
+        /* ── BUDAYA TERKAIT ── */
+        .dh-relasi { margin-top: 48px; }
+        .dh-relasi-label {
+          font-family: 'Lato', sans-serif;
+          font-size: 11px;
+          letter-spacing: .25em;
+          color: #b8963e;
+          text-transform: uppercase;
+          margin-bottom: 6px;
+        }
+        .dh-relasi-title {
+          font-size: 22px;
+          font-weight: 700;
+          color: #2a1f0e;
+          margin-bottom: 20px;
+        }
+        .dh-relasi-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+        @media(max-width: 600px) {
+          .dh-relasi-grid { grid-template-columns: 1fr; }
+        }
+        .dh-relasi-card {
+          position: relative;
+          border-radius: 10px;
+          overflow: hidden;
+          height: 150px;
+          text-decoration: none;
+          display: block;
+          transition: transform .3s;
+        }
+        .dh-relasi-card:hover { transform: translateY(-4px); }
+        .dh-relasi-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .dh-relasi-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(8,5,1,.92) 0%, rgba(8,5,1,.2) 60%);
+        }
+        .dh-relasi-body {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 2;
+          padding: 12px;
+        }
+        .dh-relasi-kat {
+          font-family: 'Lato', sans-serif;
+          font-size: 9px;
+          letter-spacing: .2em;
+          color: #c9a452;
+          text-transform: uppercase;
+          margin-bottom: 3px;
+        }
+        .dh-relasi-nama {
+          font-size: 15px;
+          font-weight: 700;
+          color: #fff;
+        }
+
+        /* ── SIDEBAR ── */
+        .dh-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+        .dh-info-box {
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #e2d5bc;
+          background: #fff;
+        }
+        .dh-info-head {
+          background: #2d1f0a;
+          padding: 16px 20px;
+        }
+        .dh-info-head-title {
+          font-family: 'Lato', sans-serif;
+          font-size: 11px;
+          letter-spacing: .25em;
+          color: #c9a452;
+          text-transform: uppercase;
+        }
+        .dh-info-body { padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+        .dh-info-label {
+          font-family: 'Lato', sans-serif;
+          font-size: 10px;
+          letter-spacing: .15em;
+          color: #9a8870;
+          text-transform: uppercase;
+          margin-bottom: 4px;
+        }
+        .dh-info-val {
+          font-family: 'Lato', sans-serif;
+          font-size: 14px;
+          color: #3a2e1e;
+          font-weight: 600;
+        }
+
+        .dh-cta-trip {
+          background: #2d1f0a;
+          border-radius: 12px;
+          padding: 24px;
+          text-align: center;
+        }
+        .dh-cta-eyebrow {
+          font-family: 'Lato', sans-serif;
+          font-size: 10px;
+          letter-spacing: .25em;
+          color: #c9a452;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .dh-cta-title {
+          font-size: 20px;
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.3;
+          margin-bottom: 18px;
+        }
+        .dh-cta-btn {
+          display: block;
+          padding: 12px;
+          background: #b8963e;
+          color: #12100a;
+          font-family: 'Lato', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: .08em;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: background .3s;
+          margin-bottom: 10px;
+        }
+        .dh-cta-btn:hover { background: #d4a843; }
+
+        .dh-back-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 12px;
+          border: 1px solid #b8963e;
+          color: #8b6914;
+          font-family: 'Lato', sans-serif;
+          font-size: 13px;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: all .3s;
+          background: transparent;
+        }
+        .dh-back-btn:hover { background: #b8963e; color: #12100a; }
+
+        .dh-artikel-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 12px;
+          border: 1px solid #e2d5bc;
+          color: #7a6a50;
+          font-family: 'Lato', sans-serif;
+          font-size: 13px;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: all .3s;
+          background: #fff;
+        }
+        .dh-artikel-btn:hover { border-color: #b8963e; color: #8b6914; }
+      `}</style>
+
+      {/* ── HERO ── */}
+      <div className="dh-hero">
+        <div className="dh-hero-bg">
+          <img
+            src={budaya.gambarHero}
+            alt={budaya.nama}
+            onError={(e) => {
+              e.target.src = `https://placehold.co/1400x600/2d1f0a/c9a84c?text=${budaya.nama}`;
+            }}
+          />
+        </div>
+        <div className="dh-hero-body">
+          <span className="dh-badge">{budaya.kategori}</span>
+          <h1 className="dh-title">{budaya.nama}</h1>
+          <p className="dh-tagline">{budaya.tagline}</p>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
-        {/* Breadcrumb */}
-        <nav className="text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-emerald-600">
-            Beranda
-          </Link>
-          <span className="mx-2">/</span>
-          <Link to="/budaya" className="hover:text-emerald-600">
-            Budaya
-          </Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-800">{budaya.nama}</span>
-        </nav>
+      {/* ── BREADCRUMB ── */}
+      <div className="dh-breadcrumb">
+        <div className="dh-breadcrumb-inner">
+          <Link to="/">Beranda</Link>
+          <span>›</span>
+          <Link to="/budaya">Budaya</Link>
+          <span>›</span>
+          <span className="dh-breadcrumb-cur">{budaya.nama}</span>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Konten Utama */}
-          <div className="md:col-span-2">
-            <h2 className="text-xl font-bold text-gray-800 mb-3">
-              Tentang {budaya.nama}
-            </h2>
-            <div className="text-gray-600 leading-relaxed space-y-3">
-              {budaya.deskripsiPanjang.split("\n\n").map((para, i) => (
-                <p key={i}>{para}</p>
+      {/* ── MAIN CONTENT ── */}
+      <div className="dh-main">
+
+        {/* KIRI — Artikel */}
+        <div>
+          <div className="dh-gold-line" />
+          {budaya.paragraf.map((p, i) => (
+            <p key={i} className="dh-para">{p}</p>
+          ))}
+
+          {/* Fakta Menarik */}
+          <div className="dh-fakta">
+            <div className="dh-fakta-title">✦ &nbsp;Fakta Menarik</div>
+            <div className="dh-fakta-grid">
+              {budaya.fakta.map((f, i) => (
+                <div key={i} className="dh-fakta-item">
+                  <span className="dh-fakta-dot">◆</span>
+                  <p className="dh-fakta-text">{f}</p>
+                </div>
               ))}
             </div>
-
-            {/* Fakta Menarik */}
-            <div className="mt-8">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">
-                Fakta Menarik
-              </h3>
-              <ul className="space-y-2">
-                {budaya.fakta.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-600">
-                    <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          {/* Sidebar Info */}
-          <div className="space-y-4">
-            <div className="bg-white rounded-2xl shadow-sm p-5">
-              <h3 className="font-bold text-gray-800 mb-4">Informasi</h3>
-              <div className="space-y-3 text-sm">
-                <div>
-                  <p className="text-gray-400">Lokasi</p>
-                  <p className="text-gray-700 font-medium">
-                    📍 {budaya.lokasi}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-gray-400">Waktu</p>
-                  <p className="text-gray-700 font-medium">🕐 {budaya.waktu}</p>
-                </div>
-                <div>
-                  <p className="text-gray-400">Tiket Masuk</p>
-                  <p className="text-gray-700 font-medium">🎫 {budaya.tiket}</p>
-                </div>
+          {/* Budaya Terkait */}
+          {relasiData.length > 0 && (
+            <div className="dh-relasi">
+              <div className="dh-relasi-label">── Eksplorasi Lebih ──</div>
+              <div className="dh-relasi-title">Budaya Terkait</div>
+              <div className="dh-relasi-grid">
+                {relasiData.map((rel) => (
+                  <Link
+                    key={rel.id}
+                    to={`/budaya/${rel.id}`}
+                    className="dh-relasi-card"
+                  >
+                    <img
+                      src={rel.gambar}
+                      alt={rel.nama}
+                      onError={(e) => {
+                        e.target.src = `https://placehold.co/400x180/2d1f0a/c9a84c?text=${rel.nama}`;
+                      }}
+                    />
+                    <div className="dh-relasi-body">
+                      <div className="dh-relasi-kat">{rel.kategori}</div>
+                      <div className="dh-relasi-nama">{rel.nama}</div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
+          )}
+        </div>
 
-            <Link
-              to="/trip"
-              className="block w-full text-center py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition-colors"
-            >
-              Ikut Open Trip →
-            </Link>
+        {/* KANAN — Sidebar */}
+        <div className="dh-sidebar">
 
-            <Link
-              to="/budaya"
-              className="block w-full text-center py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-medium rounded-xl transition-colors"
-            >
-              ← Kembali ke Daftar
+          {/* Info Kunjungan */}
+          <div className="dh-info-box">
+            <div className="dh-info-head">
+              <div className="dh-info-head-title">Informasi Kunjungan</div>
+            </div>
+            <div className="dh-info-body">
+              {[
+                { label: "Lokasi", icon: "📍", val: budaya.lokasi },
+                { label: "Waktu", icon: "🕐", val: budaya.waktu },
+                { label: "Tiket Masuk", icon: "🎫", val: budaya.tiket },
+              ].map((info) => (
+                <div key={info.label}>
+                  <div className="dh-info-label">{info.label}</div>
+                  <div className="dh-info-val">{info.icon} &nbsp;{info.val}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Open Trip */}
+          <div className="dh-cta-trip">
+            <div className="dh-cta-eyebrow">Rasakan Langsung</div>
+            <div className="dh-cta-title">Ikut Open Trip Budaya Yogyakarta</div>
+            <Link to="/trip" className="dh-cta-btn">
+              Lihat Open Trip →
             </Link>
           </div>
+
+          {/* Tombol Navigasi */}
+          <Link to="/budaya" className="dh-back-btn">
+            ← Kembali ke Daftar
+          </Link>
+          <Link to="/budaya/artikel" className="dh-artikel-btn">
+            📖 &nbsp;Baca Artikel Budaya
+          </Link>
+
         </div>
       </div>
     </div>
   );
 }
-
-export default DetailBudaya;
