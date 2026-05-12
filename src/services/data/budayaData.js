@@ -1,4 +1,9 @@
 // src/services/data/budayaData.js
+// ─────────────────────────────────────────────────────────────
+// Semua data budaya terpusat di sini.
+// Import di halaman dengan:
+//   import { dataBudaya, dataOpenTrip, dataArtikel, kategoriList, sidebarKat } from "../../services/data/budayaData";
+// ─────────────────────────────────────────────────────────────
 
 export const dataBudaya = [
   {
@@ -10,6 +15,21 @@ export const dataBudaya = [
       "Wayang adalah cermin kehidupan. Setiap tokoh, setiap gerakan, dan setiap dialog mengajarkan tentang kebijaksanaan, keberanian, dan nilai-nilai luhur Jawa.",
     gambar: "../src/assets/images/wayangkulit.png",
     featured: true,
+    lokasi: "Seluruh Yogyakarta",
+    waktu: "Malam hari, acara khusus",
+    tiket: "Gratis – Rp 50.000",
+    paragraf: [
+      "Wayang Kulit adalah seni pertunjukan tradisional Jawa yang menggunakan boneka dari kulit kerbau. Pertunjukan ini dimainkan oleh seorang dalang yang merangkap sebagai narator dan pengisi suara seluruh tokoh.",
+      "Kisah yang dibawakan biasanya bersumber dari epos Mahabharata atau Ramayana — disampaikan melalui bayangan boneka di balik layar putih yang diterangi lampu blencong. Gamelan mengalun sepanjang malam, menciptakan atmosfer sakral dan penuh penghayatan.",
+      "Wayang Kulit telah diakui UNESCO sebagai Warisan Budaya Takbenda Dunia sejak 2003, sebuah pengakuan atas kekayaan nilai filosofis, estetika, dan spiritual yang dikandungnya.",
+    ],
+    fakta: [
+      "Diakui UNESCO sebagai Warisan Dunia sejak tahun 2003",
+      "Pertunjukan bisa berlangsung 6–9 jam semalam suntuk",
+      "Dalang tunggal bisa memainkan ratusan karakter berbeda",
+      "Setiap tokoh wayang memiliki makna dan filosofi tersendiri",
+    ],
+    relasi: [2, 3, 4],
   },
   {
     id: 2,
@@ -19,6 +39,22 @@ export const dataBudaya = [
     deskripsi:
       "Setiap goresan canting menyimpan filosofi mendalam tentang kehidupan.",
     gambar: "../src/assets/images/batikyogyakarta.png",
+    featured: false,
+    lokasi: "Kotagede, Yogyakarta",
+    waktu: "Setiap hari",
+    tiket: "Gratis (workshop mulai Rp 25.000)",
+    paragraf: [
+      "Batik Yogyakarta dikenal dengan warna dasarnya yang didominasi putih, biru tua, dan hitam — berbeda dari batik Solo yang lebih cokelat keemasan. Perbedaan ini bukan sekadar estetika, melainkan cerminan filosofi yang berbeda antara dua kerajaan besar Jawa.",
+      "Motif-motif seperti Parang, Kawung, dan Sido Mukti bukan sekadar hiasan — setiap garis, titik, dan pola mengandung doa, harapan, dan pandangan hidup yang diwariskan dari generasi ke generasi.",
+      "Proses membuat batik tulis membutuhkan kesabaran luar biasa: malam (lilin) dituangkan dengan canting di atas kain, kemudian diwarnai, dilorot, dan diulang berkali-kali hingga motif sempurna terbentuk.",
+    ],
+    fakta: [
+      "Diakui UNESCO sebagai Warisan Dunia sejak tahun 2009",
+      "Ada ratusan motif batik dengan makna yang berbeda-beda",
+      "Motif tertentu dahulu hanya boleh dipakai kalangan keraton",
+      "Proses batik tulis bisa memakan waktu berbulan-bulan",
+    ],
+    relasi: [1, 3, 4],
   },
   {
     id: 3,
@@ -27,6 +63,22 @@ export const dataBudaya = [
     tagline: "Rasa Manis yang Punya Cerita",
     deskripsi: "Kuliner khas Yogyakarta yang menjadi simbol keramahan Jawa.",
     gambar: "../src/assets/images/gudeg-budaya.png",
+    featured: false,
+    lokasi: "Seluruh Yogyakarta",
+    waktu: "Pagi hingga malam hari",
+    tiket: "Rp 10.000 – Rp 50.000",
+    paragraf: [
+      "Gudeg adalah masakan khas Yogyakarta yang terbuat dari nangka muda yang dimasak berjam-jam bersama santan, gula aren, dan berbagai rempah. Hasilnya adalah cita rasa manis, gurih, dan lembut yang khas.",
+      "Lebih dari sekadar makanan, gudeg adalah identitas. Ketika seseorang menyebut Yogyakarta, gudeg hampir selalu menjadi hal pertama yang terlintas di benak. Ia hadir di warung sederhana pinggir jalan hingga meja makan sultan.",
+      "Ada dua jenis gudeg: gudeg kering yang lebih awet dan bisa dibawa sebagai oleh-oleh, serta gudeg basah yang berkuah santan kental dan lebih sering dinikmati di tempat.",
+    ],
+    fakta: [
+      "Dimasak semalam suntuk untuk menghasilkan rasa terbaik",
+      "Gudeg kering bisa tahan 2–3 hari tanpa kulkas",
+      "Sentra gudeg legendaris ada di Wijilan dan Bu Tjitro",
+      "Setiap warung punya resep rahasia yang turun-temurun",
+    ],
+    relasi: [1, 2, 4],
   },
   {
     id: 4,
@@ -36,6 +88,128 @@ export const dataBudaya = [
     deskripsi:
       "Istana megah yang menjadi pusat kebudayaan Kesultanan Ngayogyakarta.",
     gambar: "../src/assets/images/keraton.png",
+    featured: false,
+    lokasi: "Jl. Rotowijayan, Yogyakarta",
+    waktu: "Senin–Minggu, 08.00–14.00 WIB",
+    tiket: "Rp 15.000 (wisatawan lokal)",
+    paragraf: [
+      "Keraton Ngayogyakarta Hadiningrat berdiri sejak tahun 1755, dibangun oleh Sri Sultan Hamengku Buwono I setelah Perjanjian Giyanti yang membelah Mataram. Sejak hari pertama, keraton dirancang bukan hanya sebagai kediaman raja, tetapi sebagai poros kosmologi Jawa.",
+      "Seluruh tata letak keraton — dari Gunung Merapi di utara hingga Laut Selatan di ujung selatan — mencerminkan konsep Sangkan Paraning Dumadi, filosofi Jawa tentang asal-usul dan tujuan kehidupan.",
+      "Hingga hari ini, Keraton Yogyakarta tetap didiami oleh Sri Sultan Hamengku Buwono X beserta keluarga. Berbagai tradisi, tarian, dan upacara adat terus dilestarikan sebagai warisan budaya yang hidup.",
+    ],
+    fakta: [
+      "Berdiri sejak 7 Oktober 1756 oleh Sri Sultan HB I",
+      "Masih aktif didiami Sultan dan keluarga hingga kini",
+      "Memiliki museum koleksi keris, wayang, dan pusaka keraton",
+      "Pusat pertunjukan seni budaya rutin setiap minggu",
+    ],
+    relasi: [1, 2, 3],
+  },
+];
+
+export const dataOpenTrip = [
+  {
+    id: 1,
+    nama: "Kraton Yogyakarta",
+    harga: "Rp 150.000",
+    gambar: "../src/assets/images/keraton-budaya.png",
+    deskripsi: "Telusuri sejarah dan nilai-nilai luhur di pusat kerajaan Jawa.",
+  },
+  {
+    id: 2,
+    nama: "Desa Wisata Kasongan",
+    harga: "Rp 120.000",
+    gambar: "../src/assets/images/kasongan-budaya.png",
+    deskripsi: "Lihat langsung proses kerajinan gerabah khas Jogja.",
+  },
+  {
+    id: 3,
+    nama: "Saksikan Wayang Kulit",
+    harga: "Rp 200.000",
+    gambar: "../src/assets/images/pertunjukan-wayang.png",
+    deskripsi: "Nikmati pertunjukan wayang kulit dengan dalang berpengalaman.",
+  },
+  {
+    id: 4,
+    nama: "Belajar Membatik",
+    harga: "Rp 175.000",
+    gambar: "../src/assets/images/membatik-budaya.png",
+    deskripsi: "Pengalaman membatik langsung bersama pengrajin lokal.",
+  },
+];
+
+export const dataArtikel = [
+  {
+    id: 1,
+    judul: "Filosofi di Balik Motif Batik Parang",
+    kategori: "Batik",
+    penulis: "Tim Hiling Semata",
+    tanggal: "10 Mei 2025",
+    menit: "5 menit",
+    ringkasan:
+      "Motif Parang adalah salah satu motif batik tertua di Yogyakarta. Di balik keindahannya, tersimpan filosofi tentang kekuatan dan keberanian yang tak pernah padam.",
+    gambar: "../src/assets/images/batikyogyakarta.png",
+    featured: true,
+  },
+  {
+    id: 2,
+    judul: "Wayang Kulit: Seni Bertutur yang Melampaui Zaman",
+    kategori: "Wayang",
+    penulis: "Tim Hiling Semata",
+    tanggal: "3 Mei 2025",
+    menit: "7 menit",
+    ringkasan:
+      "Dari panggung tradisional hingga pentas internasional, wayang kulit terus membuktikan diri sebagai warisan budaya yang relevan di era modern.",
+    gambar: "../src/assets/images/wayangkulit.png",
+    featured: false,
+  },
+  {
+    id: 3,
+    judul: "Keraton Yogyakarta: Jantung yang Masih Berdenyut",
+    kategori: "Sejarah & Keraton",
+    penulis: "Tim Hiling Semata",
+    tanggal: "25 Apr 2025",
+    menit: "6 menit",
+    ringkasan:
+      "Keraton bukan sekadar bangunan bersejarah. Ia adalah jantung kebudayaan Yogyakarta yang terus berdenyut hingga hari ini.",
+    gambar: "../src/assets/images/keraton.png",
+    featured: false,
+  },
+  {
+    id: 4,
+    judul: "Gudeg: Warisan Rasa yang Tak Lekang Waktu",
+    kategori: "Kuliner",
+    penulis: "Tim Hiling Semata",
+    tanggal: "18 Apr 2025",
+    menit: "4 menit",
+    ringkasan:
+      "Lebih dari sekadar makanan, gudeg adalah cerita panjang tentang identitas dan kebanggaan warga Yogyakarta.",
+    gambar: "../src/assets/images/gudeg-budaya.png",
+    featured: false,
+  },
+  {
+    id: 5,
+    judul: "Makna Sekaten bagi Warga Yogyakarta",
+    kategori: "Tradisi & Upacara",
+    penulis: "Tim Hiling Semata",
+    tanggal: "10 Apr 2025",
+    menit: "5 menit",
+    ringkasan:
+      "Setiap tahun, ribuan warga berkumpul di alun-alun untuk merayakan Sekaten. Apa sesungguhnya makna di balik perayaan yang telah berlangsung berabad-abad ini?",
+    gambar: "../src/assets/images/keraton-budaya.png",
+    featured: false,
+  },
+  {
+    id: 6,
+    judul: "Membatik: Meditasi di Atas Kain",
+    kategori: "Batik",
+    penulis: "Tim Hiling Semata",
+    tanggal: "1 Apr 2025",
+    menit: "6 menit",
+    ringkasan:
+      "Setiap goresan canting adalah sebuah doa. Membatik bukan sekadar kerajinan — ia adalah proses meditasi yang menghubungkan diri dengan leluhur.",
+    gambar: "../src/assets/images/membatik-budaya.png",
+    featured: false,
   },
 ];
 
