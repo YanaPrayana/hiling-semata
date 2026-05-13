@@ -46,7 +46,7 @@ function App() {
         {/* Open Trip */}
         <Route path="/trip" element={<ListTrip />} />
         <Route path="/trip/:id" element={<DetailTrip />} />
-        <Route path="/trip/:id/booking" element={<BookingTrip />} />
+        <Route path="/trip/booking/:id" element={<BookingTrip />} />
 
         {/* Budaya */}
         <Route path="/budaya" element={<ListBudaya />} />
