@@ -138,85 +138,71 @@ function ListTrip() {
             </select>
           </div>
 
-          <div className="trip-list">
-            {dataOpenTrip.map((trip) => (
-              <div
-                className="trip-card"
-                key={trip.id}
-              >
-                {/* IMAGE */}
-                <div className="trip-image">
-                  <img
-                    src={trip.gambar}
-                    alt={trip.nama}
-                  />
+<div className="trip-list">
+  {dataOpenTrip.map((trip) => (
+    <div className="trip-card" key={trip.id}>
+      <div className="trip-image">
+        <img src={trip.gambar} alt={trip.nama} />
+        {/* Tambahkan Label Rating di atas Gambar */}
 
-                  <span className="trip-badge">
-                    Paling Populer
-                  </span>
-                </div>
+      </div>
 
-                {/* CONTENT */}
-                <div className="trip-content">
-                  <h2>{trip.nama}</h2>
+      <div className="trip-content">
+        <div className="trip-header-info">
+          <h1>{trip.nama}</h1>
+          <span className="trip-category-tag">{trip.kategori}</span>
+        </div>
 
-                  <div className="trip-meta">
-                    <span>
-                      🕒 {trip.durasi}
-                    </span>
-
-                    <span>
-                      📍 {trip.lokasi}
-                    </span>
-
-                    <span>
-                      🏷️ {trip.kategori}
-                    </span>
-                  </div>
-
-                  <p className="trip-desc">
-                    {trip.deskripsiSingkat}
-                  </p>
-
-                  <div className="trip-date">
-                    📅 Keberangkatan:
-                    {trip.tanggalKeberangkatan}
-                  </div>
-                </div>
-
-                {/* PRICE */}
-                <div className="trip-price">
-                  <small>Mulai dari</small>
-
-                  <h3>
-                    Rp{" "}
-                    {trip.harga.toLocaleString(
-                      "id-ID"
-                    )}
-                  </h3>
-
-                  <p>/orang</p>
-
-                  <div className="kuota">
-                    <span>
-                      {trip.kuotaTersisa}
-                    </span>
-                    / {trip.kuota} seat
-                  </div>
-
-                  <button
-                    onClick={() =>
-                      navigate(
-                        `/trip/${trip.id}`
-                      )
-                    }
-                  >
-                    Lihat Detail
-                  </button>
-                </div>
-              </div>
-            ))}
+        <div className="trip-meta">
+          <div className="meta-item">
+            <span className="meta-icon">🕒</span> {trip.durasi}
           </div>
+          <div className="meta-item">
+            <span className="meta-icon">📍</span> {trip.lokasi}
+          </div>
+        </div>
+
+        <p className="trip-desc">
+          {trip.deskripsiSingkat}
+        </p>
+
+        {/* Tambahkan Quick Highlight (Icon-icon kecil) */}
+        <div className="trip-highlights">
+          <span className="highlight-item">✅ Hotel</span>
+          <span className="highlight-item">✅ Makan</span>
+          <span className="highlight-item">✅ Tiket</span>
+        </div>
+      </div>
+
+      <div className="trip-price-section">
+        <div className="price-top">
+          <small>Mulai dari</small>
+          <h3>Rp {trip.harga.toLocaleString("id-ID")}</h3>
+          <p>/ orang</p>
+        </div>
+
+        <div className="availability-box">
+          <div className="progress-bar">
+            <div 
+              className="progress-fill" 
+              style={{ width: `${(trip.kuotaTersisa/trip.kuota)*100}%` }}
+            ></div>
+          </div>
+          <p className="kuota-text">
+            <span>{trip.kuotaTersisa} Kursi</span> tersisa
+          </p>
+        </div>
+
+        <button 
+          className="btn-detail-main"
+          onClick={() => navigate(`/trip/${trip.id}`)}
+        >
+          Lihat Detail
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </div>
     </section>
