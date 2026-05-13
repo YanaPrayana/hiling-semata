@@ -171,105 +171,127 @@ input[type="range"] {
 /* CARD */
 .trip-card {
   display: grid;
-  grid-template-columns: 320px 1fr 180px;
+  grid-template-columns: 280px 1fr 220px; /* Lebarkan kolom harga sedikit */
   gap: 24px;
-
-  padding-bottom: 24px;
-  margin-bottom: 24px;
-
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.trip-image {
-  position: relative;
-}
-
-.trip-image img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
+  background: rgba(255, 255, 255, 0.02); /* Beri sedikit bg agar kontras dengan container */
   border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.trip-badge {
+.trip-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 168, 76, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Rating Badge di Gambar */
+.rating-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
 
-  background: #c9a84c;
-  color: #1a1a1a;
+/* Category Tag Samping Judul */
+.trip-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
 
-  padding: 6px 12px;
-
-  border-radius: 999px;
-
-  font-size: 0.8rem;
+.trip-category-tag {
+  background: rgba(201, 168, 76, 0.1);
+  color: #c9a84c;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
   font-weight: 700;
 }
 
-.trip-content h2 {
-  color: white;
-  margin-bottom: 14px;
-}
-
-.trip-meta {
+/* Highlights Elemen */
+.trip-highlights {
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-bottom: 14px;
-
-  color: rgba(255,255,255,0.7);
-  font-size: 0.92rem;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-.trip-desc {
-  color: rgba(255,255,255,0.75);
-  line-height: 1.8;
-  margin-bottom: 18px;
+.highlight-item {
+  font-size: 0.8rem;
+  color: #43d17d;
+  font-weight: 500;
 }
 
-.trip-date {
-  color: #c9a84c;
-  font-size: 0.92rem;
+/* Progress Bar Kuota */
+.availability-box {
+  margin: 15px 0;
+  text-align: left;
 }
 
-.trip-price {
-  text-align: right;
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
 }
 
-.trip-price small {
+.progress-fill {
+  height: 100%;
+  background: #c9a84c;
+  border-radius: 10px;
+}
+
+.kuota-text {
+  font-size: 0.8rem;
   color: rgba(255,255,255,0.6);
 }
 
-.trip-price h3 {
-  color: #c9a84c;
-  font-size: 2rem;
-  margin: 10px 0;
-}
-
-.trip-price p {
-  color: rgba(255,255,255,0.7);
-}
-
-.kuota {
-  margin: 20px 0;
-  color: rgba(255,255,255,0.8);
-}
-
-.kuota span {
+.kuota-text span {
   color: #43d17d;
   font-weight: bold;
 }
 
-.trip-price button {
+/* Price Section Styling */
+.trip-price-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: 24px;
+}
+
+.price-top h3 {
+  font-size: 1.8rem;
+  color: #c9a84c;
+  margin: 5px 0;
+}
+
+.btn-detail-main {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
+  padding: 14px;
   background: #c9a84c;
   color: #1a1a1a;
-  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-detail-main:hover {
+  background: #dfbc5e;
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
 }
 
 /* RESPONSIVE */
