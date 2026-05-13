@@ -1,0 +1,239 @@
+/* src/style/budaya-style/ListBudaya.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap");
+
+.budaya-page {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #fdfaf3;
+  color: #2a2a2a;
+  overflow-x: hidden;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", serif;
+}
+.gold-text {
+  color: #b8944d;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 750px;
+  /* GRADASI BARU: Gelap di kiri (0.9), Transparan di tengah ke kanan (0.0) */
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9) 0%,
+      /* Sangat gelap di ujung kiri untuk teks */ rgba(0, 0, 0, 0.6) 30%,
+      /* Mulai memudar di area teks deskripsi */ rgba(0, 0, 0, 0) 70%
+        /* Benar-benar transparan agar subjek kanan terang */
+    ),
+    url("../../assets/images/heroSection-budaya.png");
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  color: white;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 20;
+  margin-top: -80px;
+}
+
+.hero-tag {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #b8944d;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-tag::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: #b8944d;
+}
+
+.hero-title {
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.btn-group {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.btn-main {
+  background: #b8944d;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-video {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.play-icon {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WAVE ELEMENT */
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 10;
+}
+
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: #fdfaf3;
+}
+
+/* INFO SECTION */
+.info-section {
+  padding: 80px 10% 120px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  position: relative;
+  z-index: 15;
+  background-color: #fdfaf3;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card-warisan {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: 0.4s ease;
+}
+
+.card-warisan.tall {
+  margin-top: -30px;
+}
+
+.card-warisan img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.card-icon-wrap {
+  width: 55px;
+  height: 55px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -55px auto 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  font-size: 22px;
+  position: relative;
+}
+
+/* CATEGORY NAV */
+.category-nav {
+  max-width: 1100px;
+  margin: 0 auto 100px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.cat-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-right: 1px solid #f0f0f0;
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.cat-btn:last-child {
+  border-right: none;
+}
+.cat-btn.active {
+  opacity: 1;
+}
+.cat-btn.active .cat-label {
+  color: #b8944d;
+}
+
+@media (max-width: 1100px) {
+  .info-section {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+  }
+  .category-nav {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .hero-title {
+    font-size: 45px;
+  }
+}
