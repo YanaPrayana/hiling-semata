@@ -36,14 +36,19 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:scale-105 transition-transform">
-            HS
-          </div>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src="../src/assets/images/logo-hs.png"
+            alt="Hiling Semata Logo"
+            className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+
           <div className="leading-tight">
             <span className="block text-white font-bold text-base tracking-wide">
               Hiling <span className="text-amber-400">Semata</span>
             </span>
+
             <span className="block text-amber-300/70 text-xs tracking-widest uppercase">
               Tour & Travel
             </span>
