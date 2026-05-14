@@ -1,0 +1,79 @@
+/* src/style/home-style/contact.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+.serif { font-family: 'Cormorant Garamond', serif; }
+.sans { font-family: 'Lato', sans-serif; }
+
+.contact-root {
+  position: relative;
+  background-color: #fcfaf7;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 6rem;
+}
+
+/* Ornamen Titik-titik (Dot Pattern) khas Quera */
+.dot-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
+  background-image: radial-gradient(#c9a452 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Input Styling */
+.contact-input {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-input:focus {
+  border-color: #c9a452;
+  box-shadow: 0 0 15px rgba(201,164,82,0.15);
+  transform: translateY(-2px);
+}
+
+/* Info Card Styling */
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: white;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.icon-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #fcfaf7;
+  border: 1px solid #e2d5bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9a452;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover .icon-box {
+  background-color: #c9a452;
+  color: white;
+}
