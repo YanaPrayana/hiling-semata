@@ -13,6 +13,7 @@ import DetailWisata from "./pages/wisata/DetailWisata";
 import KategoriWisata from "./pages/wisata/KategoriWisata";
 
 // Open Trip
+import LandingTrip from "./pages/opentrip/LandingTrip";
 import ListTrip from "./pages/opentrip/ListTrip";
 import DetailTrip from "./pages/opentrip/DetailTrip";
 import BookingTrip from "./pages/opentrip/BookingTrip";
@@ -44,6 +45,7 @@ function App() {
         <Route path="/wisata/kategori/:kategori" element={<KategoriWisata />} />
 
         {/* Open Trip */}
+        <Route path="/tri" element={<LandingTrip />} />
         <Route path="/trip" element={<ListTrip />} />
         <Route path="/trip/:id" element={<DetailTrip />} />
         <Route path="/trip/booking/:id" element={<BookingTrip />} />
