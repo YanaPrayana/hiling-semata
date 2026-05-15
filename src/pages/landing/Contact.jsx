@@ -58,7 +58,7 @@ function Contact() {
           variants={fadeInUp}
         >
           <div className="text-[#c9a452] uppercase tracking-[0.3em] text-xs mb-4 font-bold sans">Mari Bersilaturahmi</div>
-          <h1 className="text-5xl md:text-6xl font-bold serif text-gray-900 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold serif text-gray-200 mb-6 leading-tight">
             Punya Pertanyaan Seputar <br /> <span className="text-[#b8963e]">Hiling Semata?</span>
           </h1>
           <p className="text-gray-500 sans leading-relaxed text-lg">
