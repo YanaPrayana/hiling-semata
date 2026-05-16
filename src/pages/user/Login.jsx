@@ -1,21 +1,51 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../../style/User/login.css";
+
+const USERS_STORAGE_KEY = "users";
+
+function safeJsonParse(value, fallback) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function loadUsers() {
+  const raw = localStorage.getItem(USERS_STORAGE_KEY);
+  const data = safeJsonParse(raw, []);
+  return Array.isArray(data) ? data : [];
+}
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Simulasi login berhasil
-    // Di aplikasi nyata, Anda akan memanggil API di sini
-    const userData = {
-      name: "Sobat Hiling",
-      email: email,
-      avatar: null, // Bisa diisi URL gambar profil jika ada
-    };
+    const users = loadUsers();
+    const match = users.find(
+      (u) => String(u?.email || "").toLowerCase() === String(email).toLowerCase()
+    );
+
+    const fallbackName = String(email || "User").includes("@")
+      ? String(email).split("@")[0]
+      : "User";
+
+    // Simulasi login berhasil (tanpa backend)
+    const userData = match
+      ? match
+      : {
+          id: `usr_${Date.now()}`,
+          name: fallbackName,
+          email: email,
+          avatar: null,
+          createdAt: new Date().toISOString(),
+        };
 
     // Simpan ke localStorage agar Navbar bisa mendeteksi status login
     localStorage.setItem("user", JSON.stringify(userData));
@@ -25,78 +55,98 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-emerald-50 px-4 py-20">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        {/* Header Form */}
-        <div className="bg-emerald-900 p-8 text-center">
-          <h2 className="text-3xl font-bold text-white">
-            Selamat <span className="text-amber-400">Datang</span>
-          </h2>
-          <p className="text-emerald-200 mt-2 text-sm">
-            Masuk untuk merencanakan petualanganmu di Yogyakarta
-          </p>
-        </div>
-
-        {/* Body Form */}
-        <form onSubmit={handleLogin} className="p-8 space-y-6">
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Alamat Email
-            </label>
-            <input
-              type="email"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-              placeholder="nama@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <div className="flex justify-between mb-2">
-              <label className="text-sm font-semibold text-gray-700">
-                Kata Sandi
-              </label>
-              <a href="#" className="text-xs text-emerald-600 hover:underline">
-                Lupa sandi?
-              </a>
+    <div className="authPage">
+      <div className="authShell">
+        <div className="authHero" role="region" aria-label="Login">
+          <div className="authGlass">
+            <div className="authCopy">
+              <h1 className="authHeading">Selamat Datang</h1>
+              <p className="authSubheading">
+                Masuk untuk merencanakan petualanganmu di Yogyakarta.
+              </p>
             </div>
-            <input
-              type="password"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+
+            <form onSubmit={handleLogin} className="authForm">
+              <div className="authField">
+                <label className="authLabel" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="authInput"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Masukkan email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div className="authField">
+                <label className="authLabel" htmlFor="password">
+                  Kata sandi
+                </label>
+                <div className="authInputWrap">
+                  <input
+                    className="authInput authInputWithToggle"
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Masukkan kata sandi"
+                    autoComplete="current-password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className="authToggleBtn"
+                    onClick={() => setShowPassword((value) => !value)}
+                    aria-pressed={showPassword}
+                    aria-label={showPassword ? "Sembunyikan kata sandi" : "Lihat kata sandi"}
+                  >
+                    {showPassword ? "Sembunyi" : "Lihat"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="authHelpRow">
+                <button
+                  type="button"
+                  className="authForgot"
+                  onClick={() => {
+                    // placeholder aksi
+                  }}
+                >
+                  Lupa sandi?
+                </button>
+              </div>
+
+              <button type="submit" className="authPrimaryBtn">
+                Masuk
+              </button>
+
+              <div className="authDivider" aria-hidden="true">
+                <span className="authDividerLine" />
+                <span className="authDividerText">OR</span>
+                <span className="authDividerLine" />
+              </div>
+
+              <button type="button" className="authGoogleBtn">
+                Masuk dengan Google
+              </button>
+            </form>
+
+            <div className="authBottomText">
+              <span>Belum punya akun?</span>
+              <Link to="/register" className="authBottomLink">
+                Daftar
+              </Link>
+            </div>
           </div>
-
-          <button
-            type="submit"
-            className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg shadow-lg shadow-amber-500/30 transition-all transform hover:-translate-y-0.5"
-          >
-            Masuk Sekarang
-          </button>
-
-          <div className="relative flex items-center py-2">
-            <div className="flex-grow border-t border-gray-200"></div>
-            <span className="flex-shrink mx-4 text-gray-400 text-xs uppercase">
-              Atau
-            </span>
-            <div className="flex-grow border-t border-gray-200"></div>
-          </div>
-
-          <p className="text-center text-sm text-gray-600">
-            Belum punya akun?{" "}
-            <Link
-              to="/register"
-              className="text-emerald-600 font-bold hover:text-emerald-700"
-            >
-              Daftar Gratis
-            </Link>
-          </p>
-        </form>
+        </div>
       </div>
     </div>
   );

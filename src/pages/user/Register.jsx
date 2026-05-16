@@ -1,10 +1,63 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../style/User/register.css";
 
+const USERS_STORAGE_KEY = "users";
+
+function safeJsonParse(value, fallback) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function loadUsers() {
+  const raw = localStorage.getItem(USERS_STORAGE_KEY);
+  const data = safeJsonParse(raw, []);
+  return Array.isArray(data) ? data : [];
+}
+
 function Register() {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Konfirmasi kata sandi tidak sama.");
+      return;
+    }
+
+    const newUser = {
+      id: `usr_${Date.now()}`,
+      name: fullName.trim() || "User",
+      email: email.trim(),
+      phone: phone.trim(),
+      avatar: null,
+      createdAt: new Date().toISOString(),
+    };
+
+    const users = loadUsers();
+    const nextUsers = users.filter(
+      (u) => String(u?.email || "").toLowerCase() !== String(newUser.email).toLowerCase()
+    );
+    nextUsers.unshift(newUser);
+    localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(nextUsers));
+
+    // set current session user
+    localStorage.setItem("user", JSON.stringify(newUser));
+    navigate("/dashboard");
+  };
 
   return (
     <div className="registerPage">
@@ -18,7 +71,7 @@ function Register() {
               </p>
             </div>
 
-            <form className="registerForm">
+            <form className="registerForm" onSubmit={handleSubmit}>
               <div className="registerField">
                 <label className="registerLabel" htmlFor="fullName">
                   Nama lengkap
@@ -30,6 +83,9 @@ function Register() {
                   name="fullName"
                   placeholder="Masukkan nama lengkap"
                   autoComplete="name"
+                  required
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                 />
               </div>
 
@@ -44,6 +100,9 @@ function Register() {
                   name="email"
                   placeholder="Masukkan email"
                   autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -58,6 +117,9 @@ function Register() {
                   name="phone"
                   placeholder="Masukkan nomor HP"
                   autoComplete="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
 
@@ -73,6 +135,9 @@ function Register() {
                     name="password"
                     placeholder="Masukkan kata sandi"
                     autoComplete="new-password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <button
                     type="button"
@@ -98,6 +163,9 @@ function Register() {
                     name="confirmPassword"
                     placeholder="Konfirmasi kata sandi"
                     autoComplete="new-password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                   <button
                     type="button"

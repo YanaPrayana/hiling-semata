@@ -22,10 +22,23 @@
 			rgba(255, 255, 255, 0.55) 38%,
 			rgba(255, 255, 255, 0) 58%
 		),
-		url("../../assets/images/keraton.png");
+		url("../../assets/images/identitasYogyakarta-user.png");
 	background-size: cover;
 	background-position: center;
 	box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.authHero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.42);
+	pointer-events: none;
+}
+
+.authHero > * {
+	position: relative;
+	z-index: 1;
 }
 
 .authGlass {
