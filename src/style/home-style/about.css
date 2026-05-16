@@ -5,115 +5,131 @@
 .sans { font-family: 'Lato', sans-serif; }
 
 .about-root {
-  background-color: #fcfaf7; /* Kembali ke putih tulang Hiling Semata */
+  background-color: #efedea; /* Warna abu-abu/krem terang ala Contact */
   min-height: 100vh;
-  padding-top: 8rem;
+  padding-top: 9rem;
   padding-bottom: 6rem;
+  position: relative; 
 }
 
-/* Container Grid */
-.rrq-light-grid {
+/* BANTALAN GELAP UNTUK NAVBAR */
+.navbar-bg-fix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; 
+  background-color: #111827; 
+  z-index: 0;
+}
+
+/* CONTAINER LIST */
+.rrq-inspired-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 1000px; 
   margin: 0 auto;
 }
 
-/* Card Style (Layout RRQ, Warna Hiling Semata) */
-.rrq-card-light {
-  position: relative;
-  width: 100%;
-  max-width: 350px;
-  height: 500px; /* Kartu tinggi menjulang ala poster BA */
+/* CARD STYLE HORISONTAL (LIGHT MODE) */
+.rrq-card-horiz {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: space-between;
+  background-color: white; /* Kartu warna putih agar menonjol dari background */
   border-radius: 1.5rem;
-  overflow: hidden;
-  background-color: #e5e5e5;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  border: 1px solid #f3f4f6;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e5e7eb; 
+  padding: 2.5rem 3rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 10;
 }
 
-.rrq-card-light:hover {
-  box-shadow: 0 20px 40px rgba(201, 164, 82, 0.15); /* Shadow gold tipis */
-  transform: translateY(-10px);
-  border-color: #c9a452; /* Border jadi emas saat dihover */
+.rrq-card-horiz:hover {
+  box-shadow: 0 15px 30px rgba(201, 164, 82, 0.15); 
+  transform: translateY(-5px);
+  border-color: #c9a452; 
 }
 
-.rrq-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(100%); /* Efek abu-abu klasik */
-  transition: all 0.7s ease;
-}
-
-.rrq-card-light:hover .rrq-image {
-  filter: grayscale(0%);
-  transform: scale(1.08);
-}
-
-/* Overlay Bawah (Gradasi Putih Krem) */
-.rrq-overlay-light {
-  position: absolute;
-  inset: 0;
+/* BAGIAN TEKS KIRI */
+.rrq-card-text {
+  flex: 1; 
+  padding-right: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
-  /* Gradasi dari krem pekat di bawah ke transparan di atas */
-  background: linear-gradient(to top, #fcfaf7 10%, rgba(252,250,247,0.85) 35%, transparent 70%);
-  transition: all 0.5s ease;
-}
-
-.rrq-card-light:hover .rrq-overlay-light {
-  background: linear-gradient(to top, #fcfaf7 20%, rgba(252,250,247,0.95) 50%, transparent 80%);
+  text-align: left;
 }
 
 .rrq-role-light {
   font-family: 'Lato', sans-serif;
-  color: #c9a452; /* Gold */
+  color: #c9a452; 
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   margin-bottom: 0.5rem;
 }
 
 .rrq-name-light {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
-  font-size: 2.2rem;
-  color: #111827; /* Dark Gray / Hitam */
+  font-size: 3rem; 
+  color: #111827; /* Teks gelap */
   line-height: 1.1;
-  margin-bottom: 0;
-  transition: all 0.4s ease;
+  margin-bottom: 1rem;
 }
 
-/* Teks Tugas (Animasi Muncul dari Bawah) */
 .rrq-task-light {
   font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  color: #4b5563; /* Gray */
+  font-size: 1rem;
+  color: #4b5563; /* Teks abu-abu */
   line-height: 1.6;
-  max-height: 0;
-  opacity: 0;
+}
+
+/* BAGIAN FOTO KANAN */
+.rrq-card-photo-wrapper {
+  width: 280px; 
+  height: 280px;
+  border-radius: 1rem;
   overflow: hidden;
-  transition: all 0.5s ease;
+  flex-shrink: 0; 
+  background-color: #f3f4f6;
 }
 
-.rrq-card-light:hover .rrq-task-light {
-  max-height: 150px;
-  opacity: 1;
-  margin-top: 1rem;
+/* ANIMASI GRAYSCALE ALA RRQ */
+.rrq-image-light {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%); 
+  transition: all 0.6s ease;
 }
 
-/* Responsif: Menyesuaikan ukuran di Desktop */
-@media (min-width: 1024px) {
-  .rrq-card-light {
-    width: calc(33.333% - 1.5rem);
+.rrq-card-horiz:hover .rrq-image-light {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+/* RESPONSIF UNTUK HP/TABLET */
+@media (max-width: 768px) {
+  .rrq-card-horiz {
+    flex-direction: column-reverse; 
+    padding: 2rem;
+    text-align: center;
+  }
+  .rrq-card-text {
+    padding-right: 0;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .rrq-card-photo-wrapper {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
   }
 }

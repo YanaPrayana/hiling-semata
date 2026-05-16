@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// IMPORT DATA OPEN TRIP ASLI
+// IMPORT DATA DARI SERVICE (SESUAI STRUKTUR FOLDER ASLI)
 import { dataOpenTrip } from '../../services/data/OpenTrip';
+import { previewWisata, previewBudaya } from '../../services/data/landingData';
 
-// IMPORT GAMBAR SESUAI FOLDERMU
+// IMPORT GAMBAR BACKGROUND SAJA
 import bgHome from '../../assets/images/assetsbg-home-jogja.png';
-import imgKeraton from '../../assets/images/keratonSejarah-budaya.png';
-import imgWayang from '../../assets/images/seniPertunjukan-budaya.png';
 
 // IMPORT FILE CSS 
 import '../../style/home-style/home.css'; 
@@ -25,26 +24,7 @@ function Home() {
     }
   };
 
-  const previewWisata = [
-    { judul: 'Pantai Timang', desc: 'Konten sedang disiapkan oleh tim wisata.' },
-    { judul: 'Gunung Merapi', desc: 'Konten sedang disiapkan oleh tim wisata.' },
-    { judul: 'Hutan Pinus', desc: 'Konten sedang disiapkan oleh tim wisata.' },
-  ];
-
-  const previewBudaya = [
-    { 
-      judul: 'Kraton Yogyakarta', 
-      desc: 'Pusat peradaban dan identitas budaya Jawa yang agung.', 
-      img: imgKeraton 
-    },
-    { 
-      judul: 'Wayang Kulit', 
-      desc: 'Mahakarya seni pertunjukan yang sarat akan filosofi hidup.', 
-      img: imgWayang 
-    },
-  ];
-
-  // AMBIL 2 DATA PERTAMA DARI FILE ASLI
+  // AMBIL 2 DATA PERTAMA DARI FILE ASLI OPEN TRIP
   const previewTrip = dataOpenTrip.slice(0, 2);
 
   return (
@@ -124,9 +104,10 @@ function Home() {
             {previewBudaya.map((item, index) => (
               <div key={index} className="card-warisan-home group">
                 <div className="overflow-hidden relative">
-                  <img src={item.img} alt={item.judul} className="group-hover:scale-110" />
-                  <div className="absolute top-4 left-4 bg-[#2d1f0a]/80 text-[#c9a452] px-4 py-1 text-[10px] tracking-widest uppercase">
-                      Warisan Budaya</div>
+                   <img src={item.img} alt={item.judul} className="group-hover:scale-110" />
+                   <div className="absolute top-4 left-4 bg-[#2d1f0a]/80 text-[#c9a452] px-4 py-1 text-[10px] tracking-widest uppercase">
+                      Warisan Budaya
+                   </div>
                 </div>
                 <div className="p-6">
                   <h4 className="text-2xl font-bold text-gray-900 mb-3 serif">{item.judul}</h4>
@@ -140,7 +121,7 @@ function Home() {
           </div>
         </motion.section>
 
-        {/* SECTION OPEN TRIP (FIXED NAVIGATION) */}
+        {/* SECTION OPEN TRIP */}
         <motion.section 
           id="section-trip" 
           initial="hidden"
@@ -158,36 +139,28 @@ function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {previewTrip.map((item, index) => (
-              <div key={index} className="bg-[#1a1207] rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col group cursor-pointer border border-[#2d1f0a]">
-                <div className="h-56 overflow-hidden relative">
-                  <img 
-                    src={item.gambar} 
-                    alt={item.nama} 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
-                  />
-                  <div className="absolute top-4 left-4 bg-orange-500 text-white px-4 py-1 text-[10px] tracking-widest uppercase font-bold rounded-full">
-                    HOT DEALS
-                  </div>
-                </div>
-                <div className="p-8 flex flex-col flex-grow text-left">
-                  <h4 className="text-2xl font-bold mb-4 serif text-white line-clamp-1">{item.nama}</h4>
-                  
-                  <div className="text-gray-400 mb-6 text-sm flex gap-4">
-                    <span>🕒 {item.durasi}</span>
-                    <span>📍 {item.lokasi}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {previewTrip.map((item) => (
+              <div key={item.id} className="card-trip-border group">
+                <div className="flex flex-col h-full bg-[#1a1207] rounded-[1.4rem] overflow-hidden">
+                  <div className="h-56 overflow-hidden relative">
+                    <img src={item.gambar} alt={item.nama} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute top-4 left-4 bg-orange-500 text-white px-4 py-1 text-[10px] tracking-widest uppercase font-bold rounded-full">HOT DEALS</div>
                   </div>
                   
-                  <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
-                    <div>
-                      <small className="text-gray-500 text-xs block mb-1">Mulai dari</small>
-                      <div className="text-xl font-bold text-[#c9a452]">Rp {item.harga.toLocaleString('id-ID')}</div>
+                  <div className="p-8 flex flex-col flex-grow text-left">
+                    <h4 className="text-2xl font-bold mb-4 serif text-white line-clamp-1">{item.nama}</h4>
+                    <div className="text-gray-400 mb-6 text-sm flex gap-4">
+                      <span>🕒 {item.durasi}</span>
+                      <span>📍 {item.lokasi}</span>
                     </div>
-                    {/* PERBAIKAN DI SINI: Navigasi langsung ke ID Detail Paket */}
-                    <Link to={`/trip/${item.id}`} className="px-6 py-2 bg-blue-600 text-white font-bold rounded-lg text-xs hover:bg-blue-700 transition-all">
-                      Ikut Trip
-                    </Link>
+                    <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
+                      <div>
+                        <small className="text-gray-500 text-xs block mb-1">Mulai dari</small>
+                        <div className="text-xl font-bold text-[#c9a452]">Rp {item.harga.toLocaleString('id-ID')}</div>
+                      </div>
+                      <Link to={`/trip/${item.id}`} className="btn-blue-solid">Ikut Trip</Link>
+                    </div>
                   </div>
                 </div>
               </div>
